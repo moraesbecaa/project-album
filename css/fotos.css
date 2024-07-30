@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/* Estilo para a lista de fotos */
+ul#album-fotos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    list-style: none;
+    justify-content: space-around; /* Distribui igualmente o espaço ao redor dos itens */
+}
+
+/* Estilo para cada foto */
+ul#album-fotos li {
+    position: relative;
+    flex: 1 1 calc(33.33% - 20px); /* Ajusta a largura para 3 colunas com margens */
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    max-width: calc(33.33% - 20px); /* Limita a largura máxima para garantir consistência */
+}
+
+/* Imagem de fundo para cada foto */
+ul#album-fotos li div {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%; /* Proporção 16:9 */
+    background-size: cover; /* Cobrir todo o espaço do contêiner */
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo para texto sobreposto ao passar o mouse */
+ul#album-fotos li:hover div {
+    transform: scale(1.1); /* Aumenta um pouco ao passar o mouse */
+}
+
+/* Estilo para a legenda */
+ul#album-fotos li span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Exibir legenda ao passar o mouse */
+ul#album-fotos li:hover span {
+    opacity: 1;
+}
+
